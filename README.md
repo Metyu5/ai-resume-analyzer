@@ -1,92 +1,205 @@
-Markdown
 # 🤖 AI Resume Analyzer
 
-**AI Resume Analyzer** adalah aplikasi modern berbasis web yang dirancang untuk membantu pencari kerja mengoptimalkan resume/CV mereka. Dengan memanfaatkan kecerdasan buatan, aplikasi ini dapat memindai kesesuaian resume terhadap deskripsi pekerjaan tertentu, menghitung skor ATS (Applicant Tracking System), serta memberikan rekomendasi perbaikan secara instan.
+**AI Resume Analyzer** is a modern web application designed to help job seekers optimize their resumes/CVs using artificial intelligence. The application analyzes how well a resume matches a specific job description, calculates an ATS (Applicant Tracking System) compatibility score, and provides instant, actionable recommendations for improvement.
 
-Aplikasi ini dibangun menggunakan teknologi terbaru **Next.js**, **React**, dan disempurnakan dengan **Tailwind CSS** untuk antarmuka yang modern, dinamis, dan responsif.
-
----
-
-## 🚀 Fitur Utama
-
-Aplikasi ini dilengkapi dengan alur kerja yang sederhana namun bertenaga untuk memastikan pengalaman pengguna yang maksimal:
-
-### 1. Landing Page Interaktif & Modern
-* **Desain UI/UX Bersih:** Menggunakan font Poppins yang profesional dengan tata letak minimalis dan modern.
-* **Efek Animasi Halus:** Menggunakan pustaka *Scroll Reveal* untuk memberikan efek transisi kemunculan elemen yang elegan saat halaman digulir.
-* **Navigasi yang Seamless:** Navigasi antarhalaman yang responsif tanpa *layout breaking* atau kendala hilangnya komponen saat berpindah rute.
-
-### 2. Unggah File Resume Pintar (Smart Upload)
-* **Fleksibilitas Format:** Mendukung unggah berkas resume dalam format **PDF** maupun **DOCX**.
-* **Batasan Ukuran Berkas:** Validasi bawaan untuk memastikan ukuran berkas aman (maksimal 5MB).
-* **Zona Drop-Zone:** Fitur seret dan lepas (*drag & drop*) yang intuitif untuk mempermudah pengguna.
-
-### 3. Pencocokan Deskripsi Pekerjaan (Job Matching)
-* **Analisis Kontekstual:** Menyediakan kolom input opsional untuk memasukkan teks deskripsi lowongan pekerjaan yang sedang dilamar.
-* **Ekstraksi Kata Kunci:** Sistem akan membandingkan kata kunci dari deskripsi lowongan langsung dengan isi resume pengguna.
-
-### 4. Dasbor Hasil Analisis Komprehensif (Core Features)
-* **Skor ATS Instan:** Menampilkan kalkulasi nilai kelayakan resume dalam bentuk visual yang menarik.
-* **Masukan Taktis (Actionable Feedback):** Memberikan daftar poin kekuatan, kelemahan, serta elemen penting yang wajib ditambahkan pada resume.
+Built with the latest technologies such as **Next.js**, **React**, and **Tailwind CSS**, the application delivers a clean, responsive, and user-friendly experience.
 
 ---
 
-## 📸 Tampilan Antarmuka (Screenshots)
+# 🚀 Key Features
 
-*Berikut adalah visualisasi antarmuka aplikasi AI Resume Analyzer:*
+The application provides a simple yet powerful workflow to help users improve their resumes efficiently.
 
-### 🔹 Halaman Utama / Landing Page
-*Halaman awal yang menyambut pengguna dengan ringkasan manfaat aplikasi.*
+## 1. Modern & Interactive Landing Page
+
+- **Clean UI/UX Design:** Built with the professional Google Poppins font and a modern minimalist layout.
+- **Smooth Animations:** Uses **Scroll Reveal** to create elegant entrance animations while scrolling.
+- **Seamless Navigation:** Fast client-side navigation without layout breaking or component flashing.
+
+---
+
+## 2. Smart Resume Upload
+
+- **Multiple File Formats:** Supports both **PDF** and **DOCX** resume files.
+- **File Size Validation:** Built-in validation with a maximum upload size of **5MB**.
+- **Drag & Drop Support:** An intuitive drag-and-drop upload area for a better user experience.
+
+---
+
+## 3. Job Description Matching
+
+- **Context-Aware Analysis:** Users can optionally paste a job description for a more accurate evaluation.
+- **Keyword Extraction:** AI compares keywords from the job description against the uploaded resume to determine relevance.
+
+---
+
+## 4. Comprehensive Resume Analysis Dashboard
+
+- **Instant ATS Score:** Displays a visual ATS compatibility score.
+- **Actionable Feedback:** Identifies resume strengths, weaknesses, and missing elements.
+- **Improvement Suggestions:** Provides personalized recommendations to increase interview opportunities.
+
+---
+
+# 📸 Screenshots
+
+Below are some screenshots of the AI Resume Analyzer application.
+
+## 🔹 Landing Page
+
+The homepage introduces users to the application and highlights its main benefits.
+
 ![Landing Page](public/screenshots/landing-page.png)
 
-### 🔹 Halaman Analisis Resume (`/analyze`)
-*Ruang kerja utama tempat pengguna mengunggah resume dan memasukkan deskripsi pekerjaan.*
-![Analyze Page](public/screenshots/analyze-page.png) 
+---
+
+## 🔹 Resume Analysis Page (`/analyze`)
+
+The primary workspace where users upload their resume and enter a job description for AI analysis.
+
+![Analyze Page](public/screenshots/analyze-page.png)
 
 ---
 
-## 🛠️ Struktur Proyek & Teknologi
+# 🛠️ Tech Stack
 
-Proyek ini terorganisasi dengan struktur folder Next.js App Router yang bersih:
+- **Framework:** Next.js (App Router)
+- **Frontend:** React
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide React
+- **Fonts:** Google Fonts (Poppins)
+- **Animations:** Scroll Reveal
+- **Language:** TypeScript
 
-* **Framework:** Next.js (App Router)
-* **Library UI:** React, Tailwind CSS
-* **Fonts:** Google Poppins
-* **Animasi:** Scroll Reveal (Client-side optimized)
+---
+
+# 📁 Project Structure
 
 ```text
 ai-resume-analyzer/
-├── app/                  # App Router (Pages, Layouts, & Global CSS)
-│   ├── analyze/          # Halaman Fitur Analisis (/analyze)
-│   ├── globals.css       # Konfigurasi Global CSS & Tailwind
-│   └── layout.tsx        # Root Layout dengan Optimasi Hydration
-├── components/           # Komponen UI Reusable
-│   ├── ui/               # Dasar Komponen (Button, Input, Card, dll.)
-│   └── sections/         # Bagian Blok Halaman (Hero, Features, Navbar)
-└── public/               # Aset Statis (Gambar, Ikon, Screenshots)
-💻 Cara Menjalankan Proyek secara Lokal
-Ikuti langkah berikut untuk memasang proyek ini di komputer lokal Anda:
+├── app/                     # App Router (Pages, Layouts & Global CSS)
+│   ├── analyze/             # Resume Analysis Page
+│   ├── globals.css          # Global Styles & Tailwind CSS
+│   └── layout.tsx           # Root Layout
+│
+├── components/
+│   ├── layout/              # Navbar, Footer, Container
+│   ├── sections/            # Hero, Features, Pricing, FAQ, etc.
+│   └── ui/                  # Reusable UI Components
+│
+├── public/
+│   ├── screenshots/
+│   └── images/
+│
+└── package.json
+```
 
-Klon Repositori ini:
+---
 
-Bash
-git clone [https://github.com/Metyu5/ai-resume-analyzer.git](https://github.com/Metyu5/ai-resume-analyzer.git)
+# 💻 Getting Started
+
+Follow these steps to run the project locally.
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/Metyu5/ai-resume-analyzer.git
+
 cd ai-resume-analyzer
-Pasang Dependensi:
+```
 
-Bash
+## 2. Install Dependencies
+
+Using npm
+
+```bash
 npm install
-# atau
+```
+
+or Yarn
+
+```bash
 yarn install
-Jalankan Server Development:
+```
 
-Bash
+or pnpm
+
+```bash
+pnpm install
+```
+
+---
+
+## 3. Start the Development Server
+
+Using npm
+
+```bash
 npm run dev
-# atau
+```
+
+or Yarn
+
+```bash
 yarn dev
-Buka di Browser:
-Buka alamat http://localhost:3000 untuk melihat aplikasi berjalan.
+```
 
-🤝 Kontribusi
-Kontribusi, isu baru (issues), dan penyerahan fitur (pull requests) sangat dipersilakan untuk pengembangan aplikasi yang lebih baik.
+or pnpm
 
+```bash
+pnpm dev
+```
+
+---
+
+## 4. Open Your Browser
+
+Visit:
+
+```
+http://localhost:3000
+```
+
+to access the application.
+
+---
+
+# 📌 Roadmap
+
+Upcoming features planned for future releases:
+
+- User authentication
+- Resume history
+- AI-powered resume rewriting
+- Cover letter generator
+- Multi-language support
+- Resume templates
+- PDF report export
+- AI interview preparation
+- Resume version comparison
+- Dashboard analytics
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+If you have suggestions, bug reports, or feature requests, feel free to:
+
+- Fork the repository
+- Create a feature branch
+- Submit a Pull Request
+- Open an Issue
+
+Every contribution helps improve the project.
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+Made with using **Next.js**, **React**, and **Tailwind CSS**, **Laravel API**.
