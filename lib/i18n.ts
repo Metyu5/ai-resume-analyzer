@@ -66,6 +66,9 @@ const translations = {
     "how.step3Title": "Terima Laporan Lengkap",
     "how.step3Desc":
       "Dapatkan skor ATS, daftar kekurangan, serta rekomendasi yang dapat langsung diterapkan.",
+    "how.step4Title": "Masukkan Deskripsi Kualifikasi Pekerjaan",
+    "how.step4Desc":
+      "Tempelkan deskripsi lowongan pekerjaan atau persyaratan perusahaan. Semakin lengkap informasi yang diberikan, semakin akurat AI dalam memahami kebutuhan posisi tersebut.",
 
     // Pricing
     "pricing.badge": "Harga",
