@@ -1,36 +1,69 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import { Upload, FileText, X } from "lucide-react";
+import { Upload, FileText, X, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { useTranslation } from "@/providers/LanguageProvider";
 
 interface ResumeUploadProps {
   onAnalyze: (file: File, jobDescription: string) => void;
 }
 
 export default function ResumeUpload({ onAnalyze }: ResumeUploadProps) {
+  const { t } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [jobDescription, setJobDescription] = useState("");
   const [isDragging, setIsDragging] = useState(false);
+  const [showJobAlert, setShowJobAlert] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFile = useCallback((f: File | undefined) => {
-    if (!f) return;
-    const validTypes = [
-      "application/pdf",
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    ];
-    if (!validTypes.includes(f.type)) {
-      alert("Mohon unggah file PDF atau DOCX.");
-      return;
-    }
-    setFile(f);
-  }, []);
+  const handleFile = useCallback(
+    (f: File | undefined) => {
+      if (!f) return;
+      const validTypes = [
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
+      if (!validTypes.includes(f.type)) {
+        alert(t("upload.invalidFile"));
+        return;
+      }
+      setFile(f);
+    },
+    [t]
+  );
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setIsDragging(false);
     handleFile(e.dataTransfer.files?.[0]);
+  };
+
+  const handleSubmit = () => {
+    if (!file) return;
+    if (!jobDescription.trim()) {
+      setShowJobAlert(true);
+      return;
+    }
+    onAnalyze(file, jobDescription);
+  };
+
+  const handleProceedWithoutJob = () => {
+    setShowJobAlert(false);
+    if (file) onAnalyze(file, jobDescription);
+  };
+
+  const handleFillJob = () => {
+    setShowJobAlert(false);
+    document.getElementById("job-description")?.focus();
   };
 
   return (
@@ -62,10 +95,10 @@ export default function ResumeUpload({ onAnalyze }: ResumeUploadProps) {
               <Upload className="h-6 w-6 text-blue-600" />
             </div>
             <p className="mb-1 text-sm font-medium">
-              Seret & lepas resume Anda di sini
+              {t("upload.dragDrop")}
             </p>
             <p className="mb-5 text-xs text-muted-foreground">
-              atau klik untuk memilih file — PDF atau DOCX, maksimal 5MB
+              {t("upload.hint")}
             </p>
             <Button
               type="button"
@@ -73,7 +106,7 @@ export default function ResumeUpload({ onAnalyze }: ResumeUploadProps) {
               onClick={() => fileInputRef.current?.click()}
               className="rounded-full border-gray-200 shadow-none hover:bg-gray-50"
             >
-              Pilih File
+              {t("upload.pickFile")}
             </Button>
           </>
         ) : (
@@ -89,7 +122,7 @@ export default function ResumeUpload({ onAnalyze }: ResumeUploadProps) {
             </div>
             <button
               onClick={() => setFile(null)}
-              aria-label="Hapus file"
+              aria-label={t("upload.removeFile")}
               className="rounded-full p-1 text-muted-foreground hover:bg-blue-100 hover:text-foreground"
             >
               <X className="h-4 w-4" />
@@ -103,9 +136,9 @@ export default function ResumeUpload({ onAnalyze }: ResumeUploadProps) {
           htmlFor="job-description"
           className="mb-2 block text-sm font-medium"
         >
-          Deskripsi pekerjaan{" "}
+          {t("upload.jobLabel")}{" "}
           <span className="font-normal text-muted-foreground">
-            (opsional, membantu pencocokan kata kunci)
+            {t("upload.jobOptional")}
           </span>
         </label>
         <textarea
@@ -113,19 +146,41 @@ export default function ResumeUpload({ onAnalyze }: ResumeUploadProps) {
           rows={5}
           value={jobDescription}
           onChange={(e) => setJobDescription(e.target.value)}
-          placeholder="Tempel lowongan pekerjaan yang Anda lamar..."
+          placeholder={t("upload.jobPlaceholder")}
           className="w-full resize-none rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
         />
       </div>
 
       <Button
         disabled={!file}
-        onClick={() => file && onAnalyze(file, jobDescription)}
+        onClick={handleSubmit}
         size="lg"
         className="mt-5 w-full rounded-full bg-blue-600 hover:bg-blue-700 disabled:opacity-40"
       >
-        Analisis Resume Saya
+        {t("upload.submit")}
       </Button>
+
+      <Dialog open={showJobAlert} onOpenChange={setShowJobAlert}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <AlertCircle className="h-5 w-5 text-amber-500" />
+              {t("upload.emptyJobTitle")}
+            </DialogTitle>
+            <DialogDescription>
+              {t("upload.emptyJobDesc")}
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={handleFillJob}>
+              {t("upload.fillJob")}
+            </Button>
+            <Button onClick={handleProceedWithoutJob}>
+              {t("upload.proceedAnyway")}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

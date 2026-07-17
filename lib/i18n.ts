@@ -1,0 +1,537 @@
+export type Locale = "id" | "en" | "zh" | "ja";
+
+export const LOCALES: { code: Locale; label: string; flag: string }[] = [
+  { code: "id", label: "Bahasa Indonesia", flag: "/icons/indonesia.png" },
+  { code: "en", label: "English", flag: "/icons/english.png" },
+  { code: "zh", label: "中文", flag: "/icons/china.png" },
+  { code: "ja", label: "日本語", flag: "/icons/japan.png" },
+];
+
+export type TranslationKey = keyof (typeof translations)["id"];
+
+const translations = {
+  id: {
+    // Nav
+    "nav.home": "Beranda",
+    "nav.features": "Fitur",
+    "nav.howItWorks": "Cara Kerja",
+    "nav.pricing": "Harga",
+    "nav.login": "Masuk",
+    "nav.analyze": "Analisis Resume",
+
+    // Hero
+    "hero.badge": "ANALISIS RESUME BERBASIS AI",
+    "hero.title1": "Ketahui dengan Pasti",
+    "hero.title2": "Mengapa Resume Anda",
+    "hero.titleHighlight": "Ditolak",
+    "hero.desc":
+      "Unggah resume Anda dan deskripsi pekerjaan yang Anda inginkan. Dalam waktu kurang dari satu menit, dapatkan analisis lengkap mengenai kekuatan, kelemahan, serta hal-hal yang perlu diperbaiki agar peluang diterima kerja semakin besar.",
+    "hero.cta1": "Analisis Resume Saya",
+    "hero.cta2": "Lihat Contoh Laporan",
+    "hero.trust": "Dipercaya oleh lebih dari 12.400 pencari kerja · Tanpa perlu mendaftar",
+    "hero.scoreLabel": "SKOR ATS",
+    "hero.keywordLabel": "KATA KUNCI YANG SESUAI",
+
+    // Features
+    "features.badge": "Fitur Utama",
+    "features.title1": "Semua yang Anda Butuhkan",
+    "features.title2": "untuk Resume yang Lebih Baik",
+    "features.desc":
+      "ResumeAI membantu Anda memahami kelemahan resume, meningkatkan kompatibilitas ATS, dan memberikan saran yang dapat langsung diterapkan.",
+    "features.f1Title": "Analisis Resume Mendalam",
+    "features.f1Desc":
+      "AI menganalisis struktur, format, dan isi resume Anda untuk menemukan kekurangan yang dapat mengurangi peluang diterima kerja.",
+    "features.f2Title": "Pemeriksaan Kecocokan ATS",
+    "features.f2Desc":
+      "Ketahui seberapa baik resume Anda kompatibel dengan sistem Applicant Tracking System (ATS) yang digunakan perusahaan.",
+    "features.f3Title": "Saran Perbaikan Otomatis",
+    "features.f3Desc":
+      "Dapatkan rekomendasi yang jelas dan mudah dipahami untuk meningkatkan kualitas resume Anda.",
+    "features.f4Title": "Tingkatkan Peluang Diterima",
+    "features.f4Desc":
+      "Optimalkan resume agar lebih menarik bagi perekrut dan meningkatkan peluang mendapatkan panggilan wawancara.",
+
+    // HowItWorks
+    "how.badge": "Cara Kerja",
+    "how.title1": "Hanya 3 Langkah",
+    "how.title2": "untuk Mendapatkan Resume Terbaik",
+    "how.desc":
+      "Tidak perlu pengalaman teknis. AI akan membantu Anda menganalisis resume hanya dalam waktu kurang dari satu menit.",
+    "how.step1Title": "Unggah Resume",
+    "how.step1Desc":
+      "Unggah resume Anda dalam format PDF atau DOCX dengan mudah dan aman.",
+    "how.step2Title": "AI Menganalisis Resume",
+    "how.step2Desc":
+      "AI akan mengevaluasi struktur, isi, kata kunci, dan tingkat kompatibilitas ATS.",
+    "how.step3Title": "Terima Laporan Lengkap",
+    "how.step3Desc":
+      "Dapatkan skor ATS, daftar kekurangan, serta rekomendasi yang dapat langsung diterapkan.",
+
+    // Pricing
+    "pricing.badge": "Harga",
+    "pricing.title1": "Satu Paket",
+    "pricing.title2": "Semua Fitur Premium",
+    "pricing.desc":
+      "Bayar sekali untuk mendapatkan analisis resume yang lengkap dan meningkatkan peluang Anda mendapatkan pekerjaan impian.",
+    "pricing.plan": "Paket Premium",
+    "pricing.price": "Rp49.000",
+    "pricing.once": "sekali bayar",
+    "pricing.f1": "Analisis Resume AI",
+    "pricing.f2": "Skor ATS",
+    "pricing.f3": "Rekomendasi Perbaikan",
+    "pricing.f4": "Pencocokan Kata Kunci",
+    "pricing.f5": "Laporan Lengkap",
+    "pricing.cta": "Mulai Analisis Resume",
+
+    // Footer
+    "footer.ctaTitle1": "Berhenti Menebak Mengapa",
+    "footer.ctaTitle2": "Resume Anda Tidak Mendapat Panggilan",
+    "footer.ctaDesc":
+      "Unggah resume Anda, dapatkan skor ATS secara instan, lalu perbaiki kekurangan yang menghambat peluang Anda diterima kerja — semuanya dalam satu platform.",
+    "footer.ctaBtn": "Analisis Resume Saya",
+    "footer.desc":
+      "Platform analisis resume berbasis AI yang membantu pencari kerja membuat resume yang lebih baik dan meningkatkan kompatibilitas dengan sistem ATS.",
+    "footer.product": "Produk",
+    "footer.resources": "Sumber Daya",
+    "footer.legal": "Legal",
+    "footer.resumeGuide": "Panduan Resume",
+    "footer.atsTips": "Tips ATS",
+    "footer.blog": "Blog Karier",
+    "footer.help": "Pusat Bantuan",
+    "footer.terms": "Syarat & Ketentuan",
+    "footer.privacy": "Kebijakan Privasi",
+    "footer.cookies": "Kebijakan Cookie",
+    "footer.copyright": "© {year} ResumeAI. Seluruh hak cipta dilindungi.",
+
+    // Analyze Page
+    "analyze.title": "Analisis Resume Anda",
+    "analyze.desc":
+      "Unggah resume Anda dan dapatkan skor ATS instan beserta masukan yang bisa langsung ditindaklanjuti.",
+    "analyze.retry": "Coba Lagi",
+    "analyze.another": "Analisis Resume Lain",
+    "analyze.keywordsMatch": "{matched}/{total} kata kunci cocok dengan deskripsi pekerjaan",
+    "analyze.generalAnalysis": "Analisis umum tanpa deskripsi pekerjaan",
+    "analyze.missingKeywords": "Kata Kunci yang Hilang",
+    "analyze.suggestions": "Saran Perbaikan",
+    "analyze.errorDefault": "Gagal menganalisis resume.",
+    "analyze.errorGeneric": "Terjadi kesalahan. Silakan coba lagi.",
+
+    // Upload
+    "upload.dragDrop": "Seret & lepas resume Anda di sini",
+    "upload.hint": "atau klik untuk memilih file — PDF atau DOCX, maksimal 5MB",
+    "upload.pickFile": "Pilih File",
+    "upload.invalidFile": "Mohon unggah file PDF atau DOCX.",
+    "upload.removeFile": "Hapus file",
+    "upload.jobLabel": "Deskripsi pekerjaan",
+    "upload.jobOptional": "(opsional, membantu pencocokan kata kunci)",
+    "upload.jobPlaceholder": "Tempel lowongan pekerjaan yang Anda lamar...",
+    "upload.submit": "Analisis Resume Saya",
+    "upload.emptyJobTitle": "Deskripsi Pekerjaan Kosong",
+    "upload.emptyJobDesc":
+      "Deskripsi pekerjaan membantu AI mencocokkan kata kunci dan memberikan analisis yang lebih akurat. Tanpa deskripsi, hasil analisis bersifat umum saja.",
+    "upload.fillJob": "Isi Deskripsi",
+    "upload.proceedAnyway": "Lanjutkan Saja",
+
+    // Loading
+    "loading.analyzing": "Menganalisis resume Anda...",
+    "loading.done": "selesai",
+    "loading.step1": "Membaca resume Anda",
+    "loading.step2": "Memindai kompatibilitas ATS",
+    "loading.step3": "Membandingkan dengan kata kunci lowongan",
+    "loading.step4": "Menyusun saran perbaikan",
+
+    // Score
+    "score.label": "Skor ATS",
+
+    // Sample
+    "sample.badge": "Contoh Laporan",
+    "sample.title1": "Ini Seperti Apa",
+    "sample.title2": "Hasil Analisis Kami",
+    "sample.desc":
+      "Berikut contoh laporan analisis resume yang akan Anda dapatkan. Skor, temuan, dan saran yang ditampilkan bersifat interaktif dan actionable.",
+  },
+  en: {
+    "nav.home": "Home",
+    "nav.features": "Features",
+    "nav.howItWorks": "How It Works",
+    "nav.pricing": "Pricing",
+    "nav.login": "Log In",
+    "nav.analyze": "Analyze Resume",
+
+    "hero.badge": "AI-POWERED RESUME ANALYSIS",
+    "hero.title1": "Find Out Exactly",
+    "hero.title2": "Why Your Resume Gets",
+    "hero.titleHighlight": "Rejected",
+    "hero.desc":
+      "Upload your resume and job description. In less than one minute, get a complete analysis of strengths, weaknesses, and areas that need improvement to boost your chances of getting hired.",
+    "hero.cta1": "Analyze My Resume",
+    "hero.cta2": "See Sample Report",
+    "hero.trust": "Trusted by over 12,400 job seekers · No sign-up required",
+    "hero.scoreLabel": "ATS SCORE",
+    "hero.keywordLabel": "MATCHING KEYWORDS",
+
+    "features.badge": "Key Features",
+    "features.title1": "Everything You Need",
+    "features.title2": "for a Better Resume",
+    "features.desc":
+      "ResumeAI helps you understand your resume's weaknesses, improve ATS compatibility, and provides actionable recommendations.",
+    "features.f1Title": "In-Depth Resume Analysis",
+    "features.f1Desc":
+      "AI analyzes your resume's structure, format, and content to find issues that may reduce your chances of getting hired.",
+    "features.f2Title": "ATS Compatibility Check",
+    "features.f2Desc":
+      "See how well your resume matches the Applicant Tracking System (ATS) used by companies.",
+    "features.f3Title": "Automatic Improvement Suggestions",
+    "features.f3Desc":
+      "Get clear, easy-to-understand recommendations to improve your resume quality.",
+    "features.f4Title": "Boost Your Hiring Chances",
+    "features.f4Desc":
+      "Optimize your resume to be more attractive to recruiters and increase your chances of getting interview calls.",
+
+    "how.badge": "How It Works",
+    "how.title1": "Just 3 Simple Steps",
+    "how.title2": "to Get the Best Resume",
+    "how.desc":
+      "No technical experience needed. AI helps you analyze your resume in less than one minute.",
+    "how.step1Title": "Upload Resume",
+    "how.step1Desc":
+      "Upload your resume in PDF or DOCX format easily and securely.",
+    "how.step2Title": "AI Analyzes Resume",
+    "how.step2Desc":
+      "AI evaluates structure, content, keywords, and ATS compatibility level.",
+    "how.step3Title": "Get a Complete Report",
+    "how.step3Desc":
+      "Receive your ATS score, list of weaknesses, and actionable recommendations.",
+
+    "pricing.badge": "Pricing",
+    "pricing.title1": "One Package",
+    "pricing.title2": "All Premium Features",
+    "pricing.desc":
+      "Pay once for a complete resume analysis and increase your chances of landing your dream job.",
+    "pricing.plan": "Premium Package",
+    "pricing.price": "$9.99",
+    "pricing.once": "one-time payment",
+    "pricing.f1": "AI Resume Analysis",
+    "pricing.f2": "ATS Score",
+    "pricing.f3": "Improvement Recommendations",
+    "pricing.f4": "Keyword Matching",
+    "pricing.f5": "Complete Report",
+    "pricing.cta": "Start Resume Analysis",
+
+    "footer.ctaTitle1": "Stop Guessing Why",
+    "footer.ctaTitle2": "Your Resume Isn't Getting Calls",
+    "footer.ctaDesc":
+      "Upload your resume, get an instant ATS score, then fix the issues holding you back — all in one platform.",
+    "footer.ctaBtn": "Analyze My Resume",
+    "footer.desc":
+      "An AI-powered resume analysis platform that helps job seekers build better resumes and improve ATS compatibility.",
+    "footer.product": "Product",
+    "footer.resources": "Resources",
+    "footer.legal": "Legal",
+    "footer.resumeGuide": "Resume Guide",
+    "footer.atsTips": "ATS Tips",
+    "footer.blog": "Career Blog",
+    "footer.help": "Help Center",
+    "footer.terms": "Terms & Conditions",
+    "footer.privacy": "Privacy Policy",
+    "footer.cookies": "Cookie Policy",
+    "footer.copyright": "© {year} ResumeAI. All rights reserved.",
+
+    "analyze.title": "Analyze Your Resume",
+    "analyze.desc":
+      "Upload your resume and get an instant ATS score with actionable feedback.",
+    "analyze.retry": "Try Again",
+    "analyze.another": "Analyze Another Resume",
+    "analyze.keywordsMatch": "{matched}/{total} keywords match the job description",
+    "analyze.generalAnalysis": "General analysis without job description",
+    "analyze.missingKeywords": "Missing Keywords",
+    "analyze.suggestions": "Improvement Suggestions",
+    "analyze.errorDefault": "Failed to analyze resume.",
+    "analyze.errorGeneric": "An error occurred. Please try again.",
+
+    "upload.dragDrop": "Drag & drop your resume here",
+    "upload.hint": "or click to select — PDF or DOCX, max 5MB",
+    "upload.pickFile": "Choose File",
+    "upload.invalidFile": "Please upload a PDF or DOCX file.",
+    "upload.removeFile": "Remove file",
+    "upload.jobLabel": "Job Description",
+    "upload.jobOptional": "(optional, helps with keyword matching)",
+    "upload.jobPlaceholder": "Paste the job posting you're applying for...",
+    "upload.submit": "Analyze My Resume",
+    "upload.emptyJobTitle": "Job Description is Empty",
+    "upload.emptyJobDesc":
+      "A job description helps AI match keywords and provide more accurate analysis. Without it, results will be general.",
+    "upload.fillJob": "Fill Description",
+    "upload.proceedAnyway": "Proceed Anyway",
+
+    "loading.analyzing": "Analyzing your resume...",
+    "loading.done": "done",
+    "loading.step1": "Reading your resume",
+    "loading.step2": "Scanning ATS compatibility",
+    "loading.step3": "Comparing with job keywords",
+    "loading.step4": "Compiling recommendations",
+
+    "score.label": "ATS Score",
+
+    // Sample
+    "sample.badge": "Sample Report",
+    "sample.title1": "Here's What",
+    "sample.title2": "Your Analysis Looks Like",
+    "sample.desc":
+      "Below is a sample resume analysis report. The scores, findings, and suggestions shown are interactive and actionable.",
+  },
+  zh: {
+    "nav.home": "首页",
+    "nav.features": "功能",
+    "nav.howItWorks": "使用方法",
+    "nav.pricing": "价格",
+    "nav.login": "登录",
+    "nav.analyze": "分析简历",
+
+    "hero.badge": "AI 驱动的简历分析",
+    "hero.title1": "确切了解",
+    "hero.title2": "为什么您的简历被",
+    "hero.titleHighlight": "拒绝",
+    "hero.desc":
+      "上传您的简历和职位描述。在一分钟内，获取关于优势、劣势以及需要改进之处的完整分析，以提高您的录用机会。",
+    "hero.cta1": "分析我的简历",
+    "hero.cta2": "查看示例报告",
+    "hero.trust": "超过 12,400 名求职者信赖 · 无需注册",
+    "hero.scoreLabel": "ATS 分数",
+    "hero.keywordLabel": "匹配关键词",
+
+    "features.badge": "主要功能",
+    "features.title1": "您需要的一切",
+    "features.title2": "打造更好的简历",
+    "features.desc":
+      "ResumeAI 帮助您了解简历的不足之处，提高 ATS 兼容性，并提供可直接实施的建议。",
+    "features.f1Title": "深度简历分析",
+    "features.f1Desc":
+      "AI 分析您简历的结构、格式和内容，找出可能降低录用机会的问题。",
+    "features.f2Title": "ATS 兼容性检查",
+    "features.f2Desc":
+      "了解您的简历与公司使用的申请人跟踪系统（ATS）的匹配程度。",
+    "features.f3Title": "自动改进建议",
+    "features.f3Desc":
+      "获得清晰易懂的建议，提升您的简历质量。",
+    "features.f4Title": "提高录用机会",
+    "features.f4Desc":
+      "优化简历使其更吸引招聘人员，增加获得面试机会的可能性。",
+
+    "how.badge": "使用方法",
+    "how.title1": "只需 3 个简单步骤",
+    "how.title2": "即可获得最佳简历",
+    "how.desc":
+      "无需技术经验。AI 帮助您在一分钟内完成简历分析。",
+    "how.step1Title": "上传简历",
+    "how.step1Desc": "轻松安全地上传 PDF 或 DOCX 格式的简历。",
+    "how.step2Title": "AI 分析简历",
+    "how.step2Desc": "AI 评估结构、内容、关键词和 ATS 兼容性。",
+    "how.step3Title": "获取完整报告",
+    "how.step3Desc": "获得 ATS 分数、问题清单和可操作的改进建议。",
+
+    "pricing.badge": "价格",
+    "pricing.title1": "一个套餐",
+    "pricing.title2": "所有高级功能",
+    "pricing.desc":
+      "一次性付费即可获得完整的简历分析，提高获得理想工作的机会。",
+    "pricing.plan": "高级套餐",
+    "pricing.price": "¥69",
+    "pricing.once": "一次性付费",
+    "pricing.f1": "AI 简历分析",
+    "pricing.f2": "ATS 分数",
+    "pricing.f3": "改进建议",
+    "pricing.f4": "关键词匹配",
+    "pricing.f5": "完整报告",
+    "pricing.cta": "开始分析简历",
+
+    "footer.ctaTitle1": "别再猜为什么",
+    "footer.ctaTitle2": "您的简历没有回音",
+    "footer.ctaDesc":
+      "上传简历，立即获得 ATS 分数，然后修复阻碍您的问题——尽在一个平台。",
+    "footer.ctaBtn": "分析我的简历",
+    "footer.desc":
+      "基于 AI 的简历分析平台，帮助求职者打造更好的简历并提高 ATS 兼容性。",
+    "footer.product": "产品",
+    "footer.resources": "资源",
+    "footer.legal": "法律",
+    "footer.resumeGuide": "简历指南",
+    "footer.atsTips": "ATS 技巧",
+    "footer.blog": "职业博客",
+    "footer.help": "帮助中心",
+    "footer.terms": "条款和条件",
+    "footer.privacy": "隐私政策",
+    "footer.cookies": "Cookie 政策",
+    "footer.copyright": "© {year} ResumeAI. 保留所有权利。",
+
+    "analyze.title": "分析您的简历",
+    "analyze.desc": "上传简历，立即获得 ATS 分数和可操作的反馈。",
+    "analyze.retry": "重试",
+    "analyze.another": "分析另一份简历",
+    "analyze.keywordsMatch": "{matched}/{total} 个关键词与职位描述匹配",
+    "analyze.generalAnalysis": "无职位描述的通用分析",
+    "analyze.missingKeywords": "缺少的关键词",
+    "analyze.suggestions": "改进建议",
+    "analyze.errorDefault": "简历分析失败。",
+    "analyze.errorGeneric": "发生错误，请重试。",
+
+    "upload.dragDrop": "拖放您的简历到此处",
+    "upload.hint": "或点击选择 — PDF 或 DOCX，最大 5MB",
+    "upload.pickFile": "选择文件",
+    "upload.invalidFile": "请上传 PDF 或 DOCX 文件。",
+    "upload.removeFile": "删除文件",
+    "upload.jobLabel": "职位描述",
+    "upload.jobOptional": "（可选，有助于关键词匹配）",
+    "upload.jobPlaceholder": "粘贴您申请的职位描述...",
+    "upload.submit": "分析我的简历",
+    "upload.emptyJobTitle": "职位描述为空",
+    "upload.emptyJobDesc":
+      "职位描述帮助 AI 匹配关键词并提供更准确的分析。没有它，结果将是通用的。",
+    "upload.fillJob": "填写描述",
+    "upload.proceedAnyway": "继续分析",
+
+    "loading.analyzing": "正在分析您的简历...",
+    "loading.done": "完成",
+    "loading.step1": "正在读取简历",
+    "loading.step2": "正在扫描 ATS 兼容性",
+    "loading.step3": "正在与职位关键词对比",
+    "loading.step4": "正在整理改进建议",
+
+    "score.label": "ATS 分数",
+
+    // Sample
+    "sample.badge": "示例报告",
+    "sample.title1": "这就是",
+    "sample.title2": "分析报告的样子",
+    "sample.desc":
+      "以下是简历分析报告的示例。显示的分数、发现和建议都是可交互和可操作的。",
+  },
+  ja: {
+    "nav.home": "ホーム",
+    "nav.features": "機能",
+    "nav.howItWorks": "使い方",
+    "nav.pricing": "料金",
+    "nav.login": "ログイン",
+    "nav.analyze": "履歴書を分析",
+
+    "hero.badge": "AI搭載の履歴書分析",
+    "hero.title1": "なぜあなたの",
+    "hero.title2": "履歴書が",
+    "hero.titleHighlight": "不合格になるのか",
+    "hero.desc":
+      "履歴書と求人説明をアップロード。1分以内に、強み・弱み・改善が必要なポイントの完全な分析を取得し、採用されるチャンスを上げましょう。",
+    "hero.cta1": "履歴書を分析する",
+    "hero.cta2": "サンプルレポートを見る",
+    "hero.trust": "12,400人以上の求職者に信頼されています · 登録不要",
+    "hero.scoreLabel": "ATSスコア",
+    "hero.keywordLabel": "一致キーワード",
+
+    "features.badge": "主な機能",
+    "features.title1": "より良い履歴書に",
+    "features.title2": "必要なすべて",
+    "features.desc":
+      "ResumeAIは履歴書の弱点を理解し、ATS互換性を向上させ、実行可能なアドバイスを提供します。",
+    "features.f1Title": "詳細な履歴書分析",
+    "features.f1Desc":
+      "AIが履歴書の構造・フォーマット・内容を分析し、採用チャンスを下げる問題を見つけます。",
+    "features.f2Title": "ATS互換性チェック",
+    "features.f2Desc":
+      "企業が使用するATS（アプリケーション追跡システム）との互換性を確認します。",
+    "features.f3Title": "自動改善提案",
+    "features.f3Desc":
+      "履歴書の品質を向上させるための明確で分かりやすい提言を受け取れます。",
+    "features.f4Title": "採用チャンスを向上",
+    "features.f4Desc":
+      "履歴書をリクルーターにとってより魅力的にし、面接のチャンスを増やします。",
+
+    "how.badge": "使い方",
+    "how.title1": "たった3つの簡単ステップ",
+    "how.title2": "で最高の履歴書に",
+    "how.desc":
+      "技術的な経験は不要。AIが1分以内に履歴書の分析をサポートします。",
+    "how.step1Title": "履歴書をアップロード",
+    "how.step1Desc": "PDFまたはDOCX形式の履歴書を簡単に安全にアップロード。",
+    "how.step2Title": "AIが分析",
+    "how.step2Desc": "構造・内容・キーワード・ATS互換性を評価します。",
+    "how.step3Title": "完全なレポートを受け取る",
+    "how.step3Desc": "ATSスコア、弱点リスト、実行可能な推奨事項を取得。",
+
+    "pricing.badge": "料金",
+    "pricing.title1": "1つのパッケージ",
+    "pricing.title2": "全プレミアム機能",
+    "pricing.desc":
+      "一度の支払いですべての履歴書分析を取得し、理想の仕事につながるチャンスを高めます。",
+    "pricing.plan": "プレミアムパッケージ",
+    "pricing.price": "¥1,500",
+    "pricing.once": "一回払い",
+    "pricing.f1": "AI履歴書分析",
+    "pricing.f2": "ATSスコア",
+    "pricing.f3": "改善提案",
+    "pricing.f4": "キーワードマッチング",
+    "pricing.f5": "完全なレポート",
+    "pricing.cta": "履歴書の分析を始める",
+
+    "footer.ctaTitle1": "なぜ你的履歴書が",
+    "footer.ctaTitle2": "電話がないのか、もう推測しないで",
+    "footer.ctaDesc":
+      "履歴書をアップロードして即座にスコアを受け取り、障害となっている問題を修正 — すべて一つのプラットフォームで。",
+    "footer.ctaBtn": "履歴書を分析する",
+    "footer.desc":
+      "AI搭載の履歴書分析プラットフォーム。求職者がより良い履歴書を作成し、ATS互換性を向上させるのを支援します。",
+    "footer.product": "製品",
+    "footer.resources": "リソース",
+    "footer.legal": "法的情報",
+    "footer.resumeGuide": "履歴書ガイド",
+    "footer.atsTips": "ATSのヒント",
+    "footer.blog": "キャリアブログ",
+    "footer.help": "ヘルプセンター",
+    "footer.terms": "利用規約",
+    "footer.privacy": "プライバシーポリシー",
+    "footer.cookies": "Cookieポリシー",
+    "footer.copyright": "© {year} ResumeAI. All rights reserved.",
+
+    "analyze.title": "履歴書を分析する",
+    "analyze.desc": "履歴書をアップロードして、即座にATSスコアとフィードバックを取得。",
+    "analyze.retry": "再試行",
+    "analyze.another": "別の履歴書を分析",
+    "analyze.keywordsMatch": "{matched}/{total}個のキーワードが求人説明と一致",
+    "analyze.generalAnalysis": "求人説明なしの一般的な分析",
+    "analyze.missingKeywords": "不足キーワード",
+    "analyze.suggestions": "改善提案",
+    "analyze.errorDefault": "履歴書の分析に失敗しました。",
+    "analyze.errorGeneric": "エラーが発生しました。もう一度お試しください。",
+
+    "upload.dragDrop": "履歴書をここにドラッグ＆ドロップ",
+    "upload.hint": "またはクリックして選択 — PDFまたはDOCX、最大5MB",
+    "upload.pickFile": "ファイルを選択",
+    "upload.invalidFile": "PDFまたはDOCXファイルをアップロードしてください。",
+    "upload.removeFile": "ファイルを削除",
+    "upload.jobLabel": "求人説明",
+    "upload.jobOptional": "（任意、キーワードマッチングに役立ちます）",
+    "upload.jobPlaceholder": "応募する求人を貼り付けてください...",
+    "upload.submit": "履歴書を分析する",
+    "upload.emptyJobTitle": "求人説明が空です",
+    "upload.emptyJobDesc":
+      "求人説明はAIがキーワードをマッチングし、より正確な分析を行うのに役立ちます。なしでは、結果は一般的なものになります。",
+    "upload.fillJob": "説明を記入",
+    "upload.proceedAnyway": "続行する",
+
+    "loading.analyzing": "履歴書を分析中...",
+    "loading.done": "完了",
+    "loading.step1": "履歴書を読み込み中",
+    "loading.step2": "ATS互換性をスキャン中",
+    "loading.step3": "求人キーワードと比較中",
+    "loading.step4": "改善提案を整理中",
+
+    "score.label": "ATSスコア",
+
+    // Sample
+    "sample.badge": "サンプルレポート",
+    "sample.title1": "分析結果は",
+    "sample.title2": "このような形になります",
+    "sample.desc":
+      "以下は履歴書分析レポートのサンプルです。表示されるスコア、発見事項、提案はすべてインタラクティブで実行可能です。",
+  },
+} as const;
+
+export default translations;

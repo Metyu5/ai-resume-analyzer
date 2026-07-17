@@ -1,28 +1,30 @@
+"use client";
+
 import { Upload, ScanSearch, FileCheck } from "lucide-react";
 import Container from "../layout/Container";
-
-const STEPS = [
-  {
-    icon: Upload,
-    title: "Unggah Resume",
-    description:
-      "Unggah resume Anda dalam format PDF atau DOCX dengan mudah dan aman.",
-  },
-  {
-    icon: ScanSearch,
-    title: "AI Menganalisis Resume",
-    description:
-      "AI akan mengevaluasi struktur, isi, kata kunci, dan tingkat kompatibilitas ATS.",
-  },
-  {
-    icon: FileCheck,
-    title: "Terima Laporan Lengkap",
-    description:
-      "Dapatkan skor ATS, daftar kekurangan, serta rekomendasi yang dapat langsung diterapkan.",
-  },
-];
+import { useTranslation } from "@/providers/LanguageProvider";
 
 export default function HowItWorks() {
+  const { t } = useTranslation();
+
+  const STEPS = [
+    {
+      icon: Upload,
+      title: t("how.step1Title"),
+      description: t("how.step1Desc"),
+    },
+    {
+      icon: ScanSearch,
+      title: t("how.step2Title"),
+      description: t("how.step2Desc"),
+    },
+    {
+      icon: FileCheck,
+      title: t("how.step3Title"),
+      description: t("how.step3Desc"),
+    },
+  ];
+
   return (
     <section
       id="how-it-works"
@@ -31,18 +33,17 @@ export default function HowItWorks() {
       <Container>
         <div className="text-center max-w-2xl mx-auto">
           <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-600">
-            Cara Kerja
+            {t("how.badge")}
           </span>
 
           <h2 className="mt-5 text-4xl font-bold">
-            Hanya 3 Langkah
+            {t("how.title1")}
             <br />
-            untuk Mendapatkan Resume Terbaik
+            {t("how.title2")}
           </h2>
 
           <p className="mt-5 text-muted-foreground">
-            Tidak perlu pengalaman teknis. AI akan membantu Anda
-            menganalisis resume hanya dalam waktu kurang dari satu menit.
+            {t("how.desc")}
           </p>
         </div>
 

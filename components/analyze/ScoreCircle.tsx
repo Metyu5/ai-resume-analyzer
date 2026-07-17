@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslation } from "@/providers/LanguageProvider";
 
 interface ScoreCircleProps {
-  score: number; // 0–100
+  score: number;
   label?: string;
 }
 
-export default function ScoreCircle({ score, label = "Skor ATS" }: ScoreCircleProps) {
+export default function ScoreCircle({ score, label }: ScoreCircleProps) {
+  const { t } = useTranslation();
+  const displayLabel = label ?? t("score.label");
   const [animatedScore, setAnimatedScore] = useState(0);
   const radius = 54;
   const circumference = 2 * Math.PI * radius;
@@ -52,7 +55,7 @@ export default function ScoreCircle({ score, label = "Skor ATS" }: ScoreCirclePr
         </div>
       </div>
       <p className="mt-3 text-sm font-medium text-muted-foreground">
-        {label}
+        {displayLabel}
       </p>
     </div>
   );

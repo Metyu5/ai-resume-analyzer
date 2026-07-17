@@ -1,35 +1,40 @@
+"use client";
+
 import Link from "next/link";
 import { FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import Container from "./Container";
 import { Button } from "@/components/ui/button";
-
-const FOOTER_LINKS = {
-  product: [
-    { label: "Fitur", href: "#features" },
-    { label: "Cara Kerja", href: "#how-it-works" },
-    { label: "Harga", href: "#pricing" },
-    { label: "Dashboard", href: "/dashboard" },
-  ],
-  resources: [
-    { label: "Panduan Resume", href: "/resources/resume-guide" },
-    { label: "Tips ATS", href: "/resources/ats-tips" },
-    { label: "Blog Karier", href: "/blog" },
-    { label: "Pusat Bantuan", href: "/help" },
-  ],
-  legal: [
-    { label: "Syarat & Ketentuan", href: "/terms" },
-    { label: "Kebijakan Privasi", href: "/privacy" },
-    { label: "Kebijakan Cookie", href: "/cookies" },
-  ],
-};
-
-const SOCIAL_LINKS = [
-  { icon: FaXTwitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
-];
+import { useTranslation } from "@/providers/LanguageProvider";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
+  const FOOTER_LINKS = {
+    product: [
+      { label: t("nav.features"), href: "#features" },
+      { label: t("nav.howItWorks"), href: "#how-it-works" },
+      { label: t("nav.pricing"), href: "#pricing" },
+      { label: "Dashboard", href: "/dashboard" },
+    ],
+    resources: [
+      { label: t("footer.resumeGuide"), href: "/resources/resume-guide" },
+      { label: t("footer.atsTips"), href: "/resources/ats-tips" },
+      { label: t("footer.blog"), href: "/blog" },
+      { label: t("footer.help"), href: "/help" },
+    ],
+    legal: [
+      { label: t("footer.terms"), href: "/terms" },
+      { label: t("footer.privacy"), href: "/privacy" },
+      { label: t("footer.cookies"), href: "/cookies" },
+    ],
+  };
+
+  const SOCIAL_LINKS = [
+    { icon: FaXTwitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
+  ];
+
   return (
     <section className="bg-blue-50/60 px-4 py-16">
       <Container>
@@ -41,15 +46,13 @@ export default function Footer() {
           />
 
           <h2 className="relative text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Berhenti Menebak Mengapa
+            {t("footer.ctaTitle1")}
             <br />
-            Resume Anda Tidak Mendapat Panggilan
+            {t("footer.ctaTitle2")}
           </h2>
 
           <p className="relative mx-auto mt-4 max-w-md text-sm text-blue-100/80">
-            Unggah resume Anda, dapatkan skor ATS secara instan, lalu
-            perbaiki kekurangan yang menghambat peluang Anda diterima kerja —
-            semuanya dalam satu platform.
+            {t("footer.ctaDesc")}
           </p>
 
           <div className="relative mt-8">
@@ -57,7 +60,7 @@ export default function Footer() {
               size="lg"
               className="rounded-full bg-white px-6 text-slate-900 hover:bg-blue-50"
             >
-              Analisis Resume Saya
+              {t("footer.ctaBtn")}
             </Button>
           </div>
         </div>
@@ -74,9 +77,7 @@ export default function Footer() {
               </Link>
 
               <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-                Platform analisis resume berbasis AI yang membantu pencari
-                kerja membuat resume yang lebih baik dan meningkatkan
-                kompatibilitas dengan sistem ATS.
+                {t("footer.desc")}
               </p>
 
               <div className="mt-5 flex gap-3">
@@ -96,7 +97,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold">Produk</h4>
+              <h4 className="text-sm font-semibold">{t("footer.product")}</h4>
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.product.map((link) => (
                   <li key={link.label}>
@@ -112,7 +113,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold">Sumber Daya</h4>
+              <h4 className="text-sm font-semibold">{t("footer.resources")}</h4>
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.resources.map((link) => (
                   <li key={link.label}>
@@ -128,7 +129,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold">Legal</h4>
+              <h4 className="text-sm font-semibold">{t("footer.legal")}</h4>
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.legal.map((link) => (
                   <li key={link.label}>
@@ -145,7 +146,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-10 border-t pt-6 text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} ResumeAI. Seluruh hak cipta dilindungi.
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </div>
         </footer>
       </Container>

@@ -1,19 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-
-const NAV_LINKS = [
-  { label: "Beranda", href: "/" },
-  { label: "Fitur", href: "#features" },
-  { label: "Cara Kerja", href: "#how-it-works" },
-  { label: "Harga", href: "#pricing" },
-];
+import { useTranslation } from "@/providers/LanguageProvider";
+import LanguageSwitcher from "@/components/ui/language-switcher";
 
 export default function Navbar() {
+  const { t } = useTranslation();
+
+  const NAV_LINKS = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.features"), href: "#features" },
+    { label: t("nav.howItWorks"), href: "#how-it-works" },
+    { label: t("nav.pricing"), href: "#pricing" },
+  ];
+
   return (
-    <header className="fixed left-0 right-0 top-4 z-50 px-4">
-      <div className="mx-auto flex h-14 max-w-3xl items-center justify-between rounded-full border border-gray-100 bg-white px-3 shadow-[0_2px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(0,0,0,0.1)]">
+    <header className="fixed left-0 right-0 top-4 z-50 flex items-center justify-center px-4 ">
+      <div className="flex gap-4 h-14 max-w-3xl items-center justify-between rounded-full border border-gray-100 bg-white px-3 shadow-[0_2px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(0,0,0,0.1)]">
 
         <Link
           href="/"
@@ -39,17 +42,21 @@ export default function Navbar() {
             href="#"
             className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
           >
-            Masuk
+            {t("nav.login")}
           </Link>
 
           <Link
             href="/analyze"
             className="rounded-full bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700"
           >
-            Analisis Resume
+            {t("nav.analyze")}
           </Link>
         </div>
 
+      </div>
+
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 md:right-10">
+        <LanguageSwitcher />
       </div>
     </header>
   );

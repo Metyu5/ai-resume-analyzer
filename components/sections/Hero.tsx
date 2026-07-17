@@ -1,12 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 import Container from "../layout/Container";
-import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/providers/LanguageProvider";
+import SampleReport from "./SampleReport";
 
 export default function Hero() {
+  const { t } = useTranslation();
+  const [showSample, setShowSample] = useState(false);
+
     return (
         <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/60 to-white pb-20 pt-40">
-            {/* Latar belakang dengan efek cahaya */}
             <div
                 aria-hidden
                 className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-blue-200/30 blur-3xl"
@@ -14,25 +20,21 @@ export default function Hero() {
 
             <Container>
                 <div className="relative grid items-center gap-16 lg:grid-cols-2">
-                    {/* Bagian kiri: teks utama */}
                     <div>
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-medium text-blue-700 animate-fade-in">
                             <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                            ANALISIS RESUME BERBASIS AI
+                            {t("hero.badge")}
                         </div>
 
                         <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl animate-fade-in">
-                            Ketahui dengan Pasti
+                            {t("hero.title1")}
                             <br />
-                            Mengapa Resume Anda{" "}
-                            <span className="text-blue-600">Ditolak</span>
+                            {t("hero.title2")}{" "}
+                            <span className="text-blue-600">{t("hero.titleHighlight")}</span>
                         </h1>
 
                         <p className="mt-6 max-w-md text-base text-muted-foreground animate-fade-in">
-                            Unggah resume Anda dan deskripsi pekerjaan yang Anda inginkan.
-                            Dalam waktu kurang dari satu menit, dapatkan analisis lengkap
-                            mengenai kekuatan, kelemahan, serta hal-hal yang perlu diperbaiki
-                            agar peluang diterima kerja semakin besar.
+                            {t("hero.desc")}
                         </p>
 
                         <div className="mt-8 flex flex-wrap items-center gap-3 animate-fade-in">
@@ -40,24 +42,22 @@ export default function Hero() {
                                 href="/analyze"
                                 className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-blue-700"
                             >
-                                Analisis Resume Saya
+                                {t("hero.cta1")}
                             </Link>
 
-                            <Link
-                                href="#sample"
+                            <button
+                                onClick={() => setShowSample(true)}
                                 className="inline-flex items-center justify-center rounded-full border border-gray-200 px-6 py-3 text-center text-sm shadow-none hover:bg-gray-50"
                             >
-                                Lihat Contoh Laporan
-                            </Link>
+                                {t("hero.cta2")}
+                            </button>
                         </div>
 
                         <p className="mt-6 text-xs text-muted-foreground">
-                            Dipercaya oleh lebih dari 12.400 pencari kerja · Tanpa perlu
-                            mendaftar
+                            {t("hero.trust")}
                         </p>
                     </div>
 
-                    {/* Bagian kanan: kartu pratinjau skor */}
                     <div className="relative mx-auto w-full max-w-sm lg:mx-0 animate-fade-in">
                         <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-xl shadow-blue-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
                             <div className="mb-5 flex items-center justify-between border-b pb-4">
@@ -91,10 +91,9 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        {/* Badge skor mengambang */}
                         <div className="absolute -right-4 -top-4 rounded-2xl border border-gray-100 bg-white px-4 py-3 shadow-lg">
                             <p className="mb-0.5 text-[10px] font-medium text-muted-foreground">
-                                SKOR ATS
+                                {t("hero.scoreLabel")}
                             </p>
                             <p className="text-lg font-bold text-blue-600">
                                 94<span className="text-xs text-muted-foreground">/100</span>
@@ -103,7 +102,7 @@ export default function Hero() {
 
                         <div className="absolute -bottom-5 -left-5 rounded-2xl border border-gray-100 bg-white px-4 py-3 shadow-lg">
                             <p className="mb-0.5 text-[10px] font-medium text-muted-foreground">
-                                KATA KUNCI YANG SESUAI
+                                {t("hero.keywordLabel")}
                             </p>
                             <p className="text-lg font-bold text-blue-600">
                                 18<span className="text-xs text-muted-foreground">/20</span>
@@ -112,6 +111,8 @@ export default function Hero() {
                     </div>
                 </div>
             </Container>
+
+            <SampleReport open={showSample} onOpenChange={setShowSample} />
         </section>
     );
 }

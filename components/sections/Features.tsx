@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FileSearch,
   ScanSearch,
@@ -6,35 +8,34 @@ import {
 } from "lucide-react";
 
 import Container from "../layout/Container";
-
-const FEATURES = [
-  {
-    icon: FileSearch,
-    title: "Analisis Resume Mendalam",
-    description:
-      "AI menganalisis struktur, format, dan isi resume Anda untuk menemukan kekurangan yang dapat mengurangi peluang diterima kerja.",
-  },
-  {
-    icon: ScanSearch,
-    title: "Pemeriksaan Kecocokan ATS",
-    description:
-      "Ketahui seberapa baik resume Anda kompatibel dengan sistem Applicant Tracking System (ATS) yang digunakan perusahaan.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Saran Perbaikan Otomatis",
-    description:
-      "Dapatkan rekomendasi yang jelas dan mudah dipahami untuk meningkatkan kualitas resume Anda.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Tingkatkan Peluang Diterima",
-    description:
-      "Optimalkan resume agar lebih menarik bagi perekrut dan meningkatkan peluang mendapatkan panggilan wawancara.",
-  },
-];
+import { useTranslation } from "@/providers/LanguageProvider";
 
 export default function Features() {
+  const { t } = useTranslation();
+
+  const FEATURES = [
+    {
+      icon: FileSearch,
+      title: t("features.f1Title"),
+      description: t("features.f1Desc"),
+    },
+    {
+      icon: ScanSearch,
+      title: t("features.f2Title"),
+      description: t("features.f2Desc"),
+    },
+    {
+      icon: Lightbulb,
+      title: t("features.f3Title"),
+      description: t("features.f3Desc"),
+    },
+    {
+      icon: TrendingUp,
+      title: t("features.f4Title"),
+      description: t("features.f4Desc"),
+    },
+  ];
+
   return (
     <section
       id="features"
@@ -43,19 +44,17 @@ export default function Features() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-600">
-            Fitur Utama
+            {t("features.badge")}
           </span>
 
           <h2 className="mt-5 text-4xl font-bold tracking-tight">
-            Semua yang Anda Butuhkan
+            {t("features.title1")}
             <br />
-            untuk Resume yang Lebih Baik
+            {t("features.title2")}
           </h2>
 
           <p className="mt-5 text-muted-foreground">
-            ResumeAI membantu Anda memahami kelemahan resume,
-            meningkatkan kompatibilitas ATS, dan memberikan saran
-            yang dapat langsung diterapkan.
+            {t("features.desc")}
           </p>
         </div>
 
