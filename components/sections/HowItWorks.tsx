@@ -1,6 +1,6 @@
 "use client";
 
-import { Upload, ScanSearch, FileCheck } from "lucide-react";
+import { Upload, ScanSearch, FileCheck, FileText } from "lucide-react";
 import Container from "../layout/Container";
 import { useTranslation } from "@/providers/LanguageProvider";
 
@@ -23,6 +23,11 @@ export default function HowItWorks() {
       title: t("how.step3Title"),
       description: t("how.step3Desc"),
     },
+    {
+      icon: FileText,
+      title: t("how.step4Title"),
+      description: t("how.step4Desc"),
+    }
   ];
 
   return (
@@ -47,7 +52,7 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-8 md:grid-cols-3 xl:grid-cols-4">
           {STEPS.map((step, index) => {
             const Icon = step.icon;
 
