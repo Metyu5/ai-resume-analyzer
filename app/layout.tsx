@@ -3,11 +3,13 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import QueryProvider from "@/providers/QueryProvider";
 import { LanguageProvider } from "@/providers/LanguageProvider";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 const fontSans = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
+  preload: false,
 });
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -119,7 +121,9 @@ export default function RootLayout({
           Skip to content
         </a>
         <LanguageProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <AuthProvider>{children}</AuthProvider>
+          </QueryProvider>
         </LanguageProvider>
       </body>
     </html>

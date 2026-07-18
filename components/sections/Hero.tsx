@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 import Container from "../layout/Container";
@@ -8,19 +9,33 @@ import { useTranslation } from "@/providers/LanguageProvider";
 import SampleReport from "./SampleReport";
 
 export default function Hero() {
-  const { t } = useTranslation();
-  const [showSample, setShowSample] = useState(false);
+    const { t } = useTranslation();
+    const [showSample, setShowSample] = useState(false);
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/60 to-white pb-20 pt-40">
+        <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/60 to-white pt-28 pb-16 lg:pt-40 lg:pb-20">
             <div
                 aria-hidden
                 className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-blue-200/30 blur-3xl"
             />
 
             <Container>
-                <div className="relative grid items-center gap-16 lg:grid-cols-2">
-                    <div>
+                <div className="relative grid items-center gap-10 lg:gap-16 lg:grid-cols-2">
+
+                    {/* IMAGE */}
+                    <div className="order-1 relative mx-auto w-full max-w-2xl animate-fade-in lg:order-2 lg:mx-0">
+                        <Image
+                            src="/hero/hero.png"
+                            alt="AI Resume Analyzer"
+                            width={600}
+                            height={400}
+                            className="w-full h-auto"
+                            priority
+                        />
+                    </div>
+
+                    {/* TEXT */}
+                    <div className="order-2 lg:order-1">
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-medium text-blue-700 animate-fade-in">
                             <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
                             {t("hero.badge")}
@@ -30,7 +45,9 @@ export default function Hero() {
                             {t("hero.title1")}
                             <br />
                             {t("hero.title2")}{" "}
-                            <span className="text-blue-600">{t("hero.titleHighlight")}</span>
+                            <span className="text-blue-600">
+                                {t("hero.titleHighlight")}
+                            </span>
                         </h1>
 
                         <p className="mt-6 max-w-md text-base text-muted-foreground animate-fade-in">
@@ -47,7 +64,7 @@ export default function Hero() {
 
                             <button
                                 onClick={() => setShowSample(true)}
-                                className="inline-flex items-center justify-center rounded-full border border-gray-200 px-6 py-3 text-center text-sm shadow-none hover:bg-gray-50"
+                                className="inline-flex items-center justify-center rounded-full border border-gray-200 px-6 py-3 text-center text-sm hover:bg-gray-50"
                             >
                                 {t("hero.cta2")}
                             </button>
@@ -58,61 +75,13 @@ export default function Hero() {
                         </p>
                     </div>
 
-                    <div className="relative mx-auto w-full max-w-sm lg:mx-0 animate-fade-in">
-                        <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-xl shadow-blue-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-                            <div className="mb-5 flex items-center justify-between border-b pb-4">
-                                <div>
-                                    <div className="mb-2 h-2.5 w-28 rounded-full bg-gray-200" />
-                                    <div className="h-2 w-16 rounded-full bg-gray-100" />
-                                </div>
-                                <div className="h-8 w-8 rounded-full bg-gray-100" />
-                            </div>
-
-                            <div className="flex items-center justify-center">
-                                <svg
-                                    className="w-full max-w-xs"
-                                    viewBox="0 0 600 380"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden
-                                >
-                                    <rect x="0" y="0" width="600" height="380" rx="18" fill="#ffffff" stroke="#eef2ff" />
-                                    <rect x="28" y="30" width="220" height="20" rx="8" fill="#eef2ff"/>
-                                    <rect x="28" y="64" width="520" height="12" rx="6" fill="#f3f4f6"/>
-                                    <rect x="28" y="84" width="480" height="12" rx="6" fill="#f3f4f6"/>
-                                    <rect x="28" y="104" width="420" height="12" rx="6" fill="#e6f0ff"/>
-                                    <rect x="28" y="136" width="520" height="12" rx="6" fill="#f3f4f6"/>
-                                    <rect x="28" y="156" width="380" height="12" rx="6" fill="#f3f4f6"/>
-                                    <rect x="28" y="196" width="260" height="12" rx="6" fill="#e6f0ff"/>
-                                    <rect x="28" y="220" width="480" height="12" rx="6" fill="#f3f4f6"/>
-                                    <rect x="28" y="240" width="340" height="12" rx="6" fill="#f3f4f6"/>
-                                    <rect x="28" y="280" width="120" height="12" rx="6" fill="#f3f4f6"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div className="absolute -right-4 -top-4 rounded-2xl border border-gray-100 bg-white px-4 py-3 shadow-lg">
-                            <p className="mb-0.5 text-[10px] font-medium text-muted-foreground">
-                                {t("hero.scoreLabel")}
-                            </p>
-                            <p className="text-lg font-bold text-blue-600">
-                                94<span className="text-xs text-muted-foreground">/100</span>
-                            </p>
-                        </div>
-
-                        <div className="absolute -bottom-5 -left-5 rounded-2xl border border-gray-100 bg-white px-4 py-3 shadow-lg">
-                            <p className="mb-0.5 text-[10px] font-medium text-muted-foreground">
-                                {t("hero.keywordLabel")}
-                            </p>
-                            <p className="text-lg font-bold text-blue-600">
-                                18<span className="text-xs text-muted-foreground">/20</span>
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </Container>
 
-            <SampleReport open={showSample} onOpenChange={setShowSample} />
+            <SampleReport
+                open={showSample}
+                onOpenChange={setShowSample}
+            />
         </section>
     );
 }

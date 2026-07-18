@@ -1,11 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { useTranslation } from "@/providers/LanguageProvider";
+import { useAuth } from "@/providers/AuthProvider";
 import LanguageSwitcher from "@/components/ui/language-switcher";
+import LoginModal from "@/components/auth/LoginModal";
 
 export default function Navbar() {
   const { t } = useTranslation();
+  const { user, isLoading } = useAuth();
+  const [showLogin, setShowLogin] = useState(false);
 
   const NAV_LINKS = [
     { label: t("nav.home"), href: "/" },
@@ -38,12 +43,24 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/analyze"
-            className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
-          >
-            {t("nav.login")}
-          </Link>
+          {!isLoading && (
+            user ? (
+              <Link
+                href="/dashboard"
+                className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
+              >
+                {user.name}
+              </Link>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setShowLogin(true)}
+                className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
+              >
+                {t("nav.login")}
+              </button>
+            )
+          )}
 
           <Link
             href="/analyze"
@@ -58,6 +75,8 @@ export default function Navbar() {
       <div className="absolute right-6 top-1/2 -translate-y-1/2 md:right-10">
         <LanguageSwitcher />
       </div>
+
+      <LoginModal open={showLogin} onOpenChange={setShowLogin} />
     </header>
   );
 }

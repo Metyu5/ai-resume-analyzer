@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import Container from "./Container";
-import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/providers/LanguageProvider";
 
 export default function Footer() {
@@ -21,6 +20,7 @@ export default function Footer() {
       { label: t("footer.atsTips"), href: "/resources/ats-tips" },
       { label: t("footer.blog"), href: "/blog" },
       { label: t("footer.help"), href: "/help" },
+      { label: t("footer.faq"), href: "/faq" },
     ],
     legal: [
       { label: t("footer.terms"), href: "/terms" },
@@ -56,13 +56,12 @@ export default function Footer() {
           </p>
 
           <div className="relative mt-8">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full bg-white px-6 text-slate-900 hover:bg-blue-50"
+            <Link
+              href="/analyze"
+              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-white px-6 text-sm font-medium text-slate-900 shadow-sm transition-colors hover:bg-blue-50"
             >
-              <Link href="/analyze">{t("footer.ctaBtn")}</Link>
-            </Button>
+              {t("footer.ctaBtn")}
+            </Link>
           </div>
         </div>
 
