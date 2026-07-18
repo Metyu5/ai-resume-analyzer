@@ -57,16 +57,17 @@ export default function Footer() {
 
           <div className="relative mt-8">
             <Button
+              asChild
               size="lg"
               className="rounded-full bg-white px-6 text-slate-900 hover:bg-blue-50"
             >
-              {t("footer.ctaBtn")}
+              <Link href="/analyze">{t("footer.ctaBtn")}</Link>
             </Button>
           </div>
         </div>
 
         {/* Footer */}
-        <footer className="rounded-3xl bg-white px-8 pb-10 pt-24 shadow-sm">
+        <footer className="rounded-3xl bg-white px-8 pb-10 pt-24 shadow-sm" aria-label="Footer">
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
             <div>
               <Link
@@ -97,7 +98,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold">{t("footer.product")}</h4>
+              <h3 className="text-sm font-semibold">{t("footer.product")}</h3>
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.product.map((link) => (
                   <li key={link.label}>
@@ -113,7 +114,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold">{t("footer.resources")}</h4>
+              <h3 className="text-sm font-semibold">{t("footer.resources")}</h3>
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.resources.map((link) => (
                   <li key={link.label}>
@@ -129,7 +130,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-sm font-semibold">{t("footer.legal")}</h4>
+              <h3 className="text-sm font-semibold">{t("footer.legal")}</h3>
               <ul className="mt-4 space-y-3">
                 {FOOTER_LINKS.legal.map((link) => (
                   <li key={link.label}>

@@ -25,7 +25,7 @@ export default function Navbar() {
           Resume<span className="text-blue-600">AI</span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -39,7 +39,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="#"
+            href="/analyze"
             className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
           >
             {t("nav.login")}

@@ -144,4 +144,12 @@
   animation: fadeIn 0.8s ease-out both;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* removed scroll-based reveal classes */

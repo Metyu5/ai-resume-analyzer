@@ -53,7 +53,7 @@ export default function AnalyzePage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gradient-to-b from-blue-50/40 to-white pb-24 pt-32">
+      <main id="main-content" className="min-h-screen bg-gradient-to-b from-blue-50/40 to-white pb-24 pt-32">
         <Container>
           {stage === "upload" && (
             <div className="text-center">
@@ -114,9 +114,9 @@ export default function AnalyzePage() {
 
               {result.missingKeywords.length > 0 && (
                 <div className="mt-8 rounded-2xl border border-amber-100 bg-amber-50 p-6">
-                  <h3 className="mb-3 font-semibold text-amber-800">
+                  <h2 className="mb-3 font-semibold text-amber-800">
                     {t("analyze.missingKeywords")}
-                  </h3>
+                  </h2>
                   <div className="flex flex-wrap gap-2">
                     {result.missingKeywords.map((keyword) => (
                       <span
@@ -132,9 +132,9 @@ export default function AnalyzePage() {
 
               {result.suggestions.length > 0 && (
                 <div className="mt-8 rounded-2xl border border-green-100 bg-green-50 p-6">
-                  <h3 className="mb-3 font-semibold text-green-800">
+                  <h2 className="mb-3 font-semibold text-green-800">
                     {t("analyze.suggestions")}
-                  </h3>
+                  </h2>
                   <ul className="space-y-2">
                     {result.suggestions.map((suggestion, index) => (
                       <li
