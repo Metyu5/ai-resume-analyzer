@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { useTranslation } from "@/providers/LanguageProvider";
 import { LOCALES } from "@/lib/i18n";
 
@@ -30,10 +31,12 @@ export default function LanguageSwitcher() {
       >
         {current?.code}
         {current?.flag && (
-          <img
+          <Image
             src={current.flag}
             alt={current.label}
-            className="h-4 w-4 rounded-full object-cover"
+            width={16}
+            height={16}
+            className="rounded-full object-cover"
           />
         )}
       </button>
@@ -53,10 +56,12 @@ export default function LanguageSwitcher() {
                   : "text-foreground"
               }`}
             >
-              <img
+              <Image
                 src={l.flag}
                 alt={l.label}
-                className="h-5 w-5 rounded-full object-cover"
+                width={20}
+                height={20}
+                className="rounded-full object-cover"
               />
               <span>{l.label}</span>
             </button>
