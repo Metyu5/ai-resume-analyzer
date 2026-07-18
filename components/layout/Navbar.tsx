@@ -43,23 +43,23 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {!isLoading && (
-            user ? (
-              <Link
-                href="/dashboard"
-                className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
-              >
-                {user.name}
-              </Link>
-            ) : (
-              <button
-                type="button"
-                onClick={() => setShowLogin(true)}
-                className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
-              >
-                {t("nav.login")}
-              </button>
-            )
+          {isLoading ? (
+            <div className="hidden h-9 w-20 rounded-full bg-gray-100 sm:block" />
+          ) : user ? (
+            <Link
+              href="/dashboard"
+              className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
+            >
+              {user.name}
+            </Link>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setShowLogin(true)}
+              className="hidden rounded-full border border-gray-200 px-5 py-2 text-sm font-medium text-muted-foreground shadow-none hover:bg-gray-50 sm:inline-flex"
+            >
+              {t("nav.login")}
+            </button>
           )}
 
           <Link
